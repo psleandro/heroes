@@ -8,6 +8,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from '~/components/ui/pagination';
+import { PaginationSkeleton } from './PaginationSkeleton';
 import type { PaginationModel } from '~/types';
 
 type PaginationComponentProps = {
@@ -48,5 +49,7 @@ const PaginationComponent = ({
     </Pagination>
   );
 };
+
+PaginationComponent.Skeleton = PaginationSkeleton;
 
 export { PaginationComponent as Pagination };
