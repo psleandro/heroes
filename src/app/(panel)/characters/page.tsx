@@ -1,11 +1,21 @@
 import { getCharacters } from '~/services';
 import { CharacterCard } from './components';
+import { Pagination } from './components/Pagination';
+import type { PaginationModel } from '~/types';
 
-export default async function CharactersPage() {
-  const result = await getCharacters();
+type CharactersPageProps = {
+  searchParams: PaginationModel;
+};
+
+export default async function CharactersPage({
+  searchParams: { page = '1', pageSize = '20' },
+}: CharactersPageProps) {
+  const result = await getCharacters({ page, pageSize });
+
+  const hrefToPage = (page: number) => ({ query: { page, pageSize } });
 
   return (
-    <div className="min-h-dvh bg-slate-100 p-16">
+    <div className="flex min-h-dvh flex-col gap-8 p-4 lg:p-16">
       <ul className="flex flex-wrap gap-8 gap-y-16">
         {result.data.results?.map((result) => (
           <li
@@ -16,6 +26,12 @@ export default async function CharactersPage() {
           </li>
         ))}
       </ul>
+
+      <Pagination
+        model={{ page, pageSize }}
+        total={result.data.total}
+        hrefToPage={hrefToPage}
+      />
     </div>
   );
 }

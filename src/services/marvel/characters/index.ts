@@ -1,6 +1,9 @@
 import { marvelApi } from '../api';
-import type { Character, DataWrapper } from '~/types';
+import { getPaginationQuery } from '~/utils';
+import type { Character, DataWrapper, PaginationModel } from '~/types';
 
-export const getCharacters = async () => {
-  return marvelApi<DataWrapper<Character>>(`/characters`);
+export const getCharacters = async ({ page, pageSize }: PaginationModel) => {
+  return marvelApi<DataWrapper<Character>>(
+    `/characters?${getPaginationQuery(page, pageSize)}`,
+  );
 };
