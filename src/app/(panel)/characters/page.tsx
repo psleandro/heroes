@@ -1,21 +1,22 @@
 import { getCharacters } from '~/services';
-import { CharacterCard } from './components';
-import { Pagination } from './components/Pagination';
-import type { PaginationModel } from '~/types';
+import { CharacterCard, Pagination, SearchInput } from './components';
+import type { PaginationModelWithSearch } from '~/types';
 
 type CharactersPageProps = {
-  searchParams: PaginationModel;
+  searchParams: PaginationModelWithSearch;
 };
 
 export default async function CharactersPage({
-  searchParams: { page = '1', pageSize = '20' },
+  searchParams: { page = '1', pageSize = '20', search = '' },
 }: CharactersPageProps) {
-  const result = await getCharacters({ page, pageSize });
+  const result = await getCharacters({ search, page, pageSize });
 
-  const hrefToPage = (page: number) => ({ query: { page, pageSize } });
+  const hrefToPage = (page: number) => ({ query: { search, page, pageSize } });
 
   return (
     <div className="flex min-h-dvh flex-col gap-8 p-4 lg:p-16">
+      <SearchInput initialValue={search} />
+
       <ul className="flex flex-wrap gap-8 gap-y-16">
         {result.data.results?.map((result) => (
           <li

@@ -1,9 +1,17 @@
 import { marvelApi } from '../api';
-import { getPaginationQuery } from '~/utils';
-import type { Character, DataWrapper, PaginationModel } from '~/types';
+import { getPaginationQuery, getSearchQuery } from '~/utils';
+import type {
+  Character,
+  DataWrapper,
+  PaginationModelWithSearch,
+} from '~/types';
 
-export const getCharacters = async ({ page, pageSize }: PaginationModel) => {
+export const getCharacters = async ({
+  search,
+  page,
+  pageSize,
+}: PaginationModelWithSearch) => {
   return marvelApi<DataWrapper<Character>>(
-    `/characters?${getPaginationQuery(page, pageSize)}`,
+    `/characters?${getPaginationQuery(page, pageSize)}&${getSearchQuery(search)}`,
   );
 };
