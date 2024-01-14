@@ -1,10 +1,12 @@
 import Image from 'next/image';
 import { ApparitionsTag } from './ApparitionsTag';
 import type { Character } from '~/types';
+import Link from 'next/link';
 
 type CharacterCardProps = Character;
 
 const CharacterCard = ({
+  id,
   name,
   thumbnail,
   comics,
@@ -13,14 +15,17 @@ const CharacterCard = ({
   stories,
 }: CharacterCardProps) => (
   <div className="flex flex-1 flex-col gap-3">
-    <div className="relative aspect-square  overflow-hidden rounded-md object-cover shadow-lg hover:cursor-pointer">
+    <Link
+      href={`/characters/${id}`}
+      className="relative aspect-square overflow-hidden rounded-md object-cover shadow-lg hover:cursor-pointer"
+    >
       <Image
         className="transition-all duration-500 hover:scale-110"
         src={`${thumbnail.path}.${thumbnail.extension}`}
         fill
         alt={name}
       />
-    </div>
+    </Link>
     <strong className="text-lg">{name}</strong>
     <ul className="-mt-1 flex flex-wrap gap-1">
       <ApparitionsTag type="comic" quantity={comics.available} />

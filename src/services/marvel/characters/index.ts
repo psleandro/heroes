@@ -15,3 +15,7 @@ export const getCharacters = async ({
     `/characters?${getPaginationQuery(page, pageSize)}&${getSearchQuery(search)}`,
   );
 };
+
+export const getCharacterById = async (characterId: string | number) => {
+  return marvelApi<DataWrapper<Character>>(`/characters/${characterId}`);
+};
