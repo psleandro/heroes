@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { ApparitionsTag } from './ApparitionsTag';
+import { ApparitionsTag } from '~/components/ApparitionsTag';
 import type { Character } from '~/types';
 import Link from 'next/link';
 

@@ -12,6 +12,9 @@ export const getPaginationQuery = (
   return `limit=${pageSize}&offset=${getOffsetFromPagination(page, pageSize)}`;
 };
 
-export const getSearchQuery = (search: string | undefined) => {
-  return search ? `nameStartsWith=${search}` : '';
+export const getSearchQuery = (
+  search: string | undefined,
+  key: string = 'nameStartsWith',
+) => {
+  return search ? `${key}=${search}` : '';
 };

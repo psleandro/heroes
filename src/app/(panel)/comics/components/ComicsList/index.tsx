@@ -1,27 +1,27 @@
-import { getCharacters } from '~/services';
-import { CharacterCard } from './components';
-import { CharacterListSkeleton } from './CharacterListSkeleton';
+import { getComics } from '~/services';
 import { Pagination } from '~/components/Pagination';
+import { ComicCard } from './components';
+import { ComicListSkeleton } from './ComicListSkeleton';
 import type { PaginationModelWithSearch } from '~/types';
 
-type CharactersListProps = {
+type ComicsListProps = {
   searchParams: PaginationModelWithSearch;
 };
 
-const CharactersList = async ({ searchParams }: CharactersListProps) => {
-  const result = await getCharacters(searchParams);
+const ComicsList = async ({ searchParams }: ComicsListProps) => {
+  const result = await getComics(searchParams);
 
   const hrefToPage = (page: number) => ({ query: { ...searchParams, page } });
 
   return (
     <>
       <ul className="flex flex-wrap gap-8 gap-y-16">
-        {result.data.results?.map((result) => (
+        {result.data.results?.map((comic) => (
           <li
-            key={result.id}
+            key={comic.id}
             className="flex min-w-36 flex-1 md:min-w-48 lg:min-w-60 xl:w-72 xl:max-w-72"
           >
-            <CharacterCard {...result} />
+            <ComicCard comic={comic} />
           </li>
         ))}
       </ul>
@@ -35,6 +35,6 @@ const CharactersList = async ({ searchParams }: CharactersListProps) => {
   );
 };
 
-CharactersList.Skeleton = CharacterListSkeleton;
+ComicsList.Skeleton = ComicListSkeleton;
 
-export { CharactersList };
+export { ComicsList };

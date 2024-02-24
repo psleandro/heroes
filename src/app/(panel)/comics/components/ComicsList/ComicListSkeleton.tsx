@@ -1,7 +1,7 @@
 import { Pagination } from '~/components/Pagination';
 import { Skeleton } from '~/components/ui/skeleton';
 
-const CharacterListSkeleton = () => (
+const ComicListSkeleton = () => (
   <>
     <ul className="flex flex-wrap gap-8 gap-y-16">
       {Array.from({ length: 20 })?.map((_, index) => (
@@ -24,4 +24,4 @@ const CharacterListSkeleton = () => (
   </>
 );
 
-export { CharacterListSkeleton };
+export { ComicListSkeleton };

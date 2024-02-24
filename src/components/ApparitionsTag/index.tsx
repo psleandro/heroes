@@ -1,4 +1,10 @@
-type ApparitionsTagType = 'comic' | 'event' | 'serie' | 'story';
+type ApparitionsTagType =
+  | 'comic'
+  | 'event'
+  | 'serie'
+  | 'story'
+  | 'character'
+  | 'creator';
 
 type ApparitionsTagProps = {
   type: ApparitionsTagType;
@@ -10,6 +16,8 @@ const apparitionBgColorByType = {
   event: 'bg-orange-400',
   serie: 'bg-blue-400',
   story: 'bg-green-400',
+  character: 'bg-cyan-400',
+  creator: 'bg-violet-400',
 };
 
 const getApparitionTextByType = (
@@ -24,7 +32,7 @@ const ApparitionsTag = ({ type, quantity = 0 }: ApparitionsTagProps) =>
   !!quantity && (
     <>
       <li
-        className={`flex gap-1 rounded-md ${apparitionBgColorByType[type]} px-2 py-1 text-xs text-white`}
+        className={`flex gap-1 rounded-md ${apparitionBgColorByType[type]} bg bg- px-2 py-1 text-xs text-white`}
       >
         <span>{quantity}</span>
         <span className="capitalize">
