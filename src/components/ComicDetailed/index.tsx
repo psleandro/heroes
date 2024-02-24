@@ -24,7 +24,7 @@ const ComicDetailed = async ({ comicId }: ComicDetailedProps) => {
       <ComicInfo comicId={comicId} />
 
       {!!comic.characters?.items?.length && (
-        <SectionList className="before:bg-emerald-400">
+        <SectionList type="character">
           <SectionList.Header>
             <SectionList.Title>Characters</SectionList.Title>
             <SectionList.Link href={`#series${comicId}`} />
@@ -38,7 +38,7 @@ const ComicDetailed = async ({ comicId }: ComicDetailedProps) => {
       )}
 
       {!!comic.creators?.items?.length && (
-        <SectionList className="before:-skew-y-2 before:bg-amber-400">
+        <SectionList type="creator">
           <SectionList.Header>
             <SectionList.Title>Creators</SectionList.Title>
             <SectionList.Link href={`#comics${comicId}`} />
@@ -52,7 +52,7 @@ const ComicDetailed = async ({ comicId }: ComicDetailedProps) => {
       )}
 
       {!!comic.events?.items?.length && (
-        <SectionList className="before:bg-blue-400">
+        <SectionList type="event">
           <SectionList.Header>
             <SectionList.Title>Events</SectionList.Title>
             <SectionList.Link href={`#events${comicId}`} />
@@ -62,7 +62,7 @@ const ComicDetailed = async ({ comicId }: ComicDetailedProps) => {
       )}
 
       {!!comic.stories?.items?.length && (
-        <SectionList className="before:bg-indigo-400">
+        <SectionList type="story">
           <SectionList.Header>
             <SectionList.Title>Stories</SectionList.Title>
             <SectionList.Link href={`#stories${comicId}`} />

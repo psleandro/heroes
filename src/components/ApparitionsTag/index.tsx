@@ -1,27 +1,13 @@
-type ApparitionsTagType =
-  | 'comic'
-  | 'event'
-  | 'serie'
-  | 'story'
-  | 'character'
-  | 'creator';
+import { MarvelApiEntityType } from '~/types';
+import { bgColorByEntityType } from '~/utils';
 
 type ApparitionsTagProps = {
-  type: ApparitionsTagType;
+  type: MarvelApiEntityType;
   quantity: number | undefined;
 };
 
-const apparitionBgColorByType = {
-  comic: 'bg-red-400',
-  event: 'bg-orange-400',
-  serie: 'bg-blue-400',
-  story: 'bg-green-400',
-  character: 'bg-cyan-400',
-  creator: 'bg-violet-400',
-};
-
 const getApparitionTextByType = (
-  type: ApparitionsTagType,
+  type: MarvelApiEntityType,
   quantity: number,
 ) => {
   if (quantity < 2) return type;
@@ -32,7 +18,7 @@ const ApparitionsTag = ({ type, quantity = 0 }: ApparitionsTagProps) =>
   !!quantity && (
     <>
       <li
-        className={`flex gap-1 rounded-md ${apparitionBgColorByType[type]} bg bg- px-2 py-1 text-xs text-white`}
+        className={`flex gap-1 rounded-md ${bgColorByEntityType[type]} bg bg- px-2 py-1 text-xs text-white`}
       >
         <span>{quantity}</span>
         <span className="capitalize">
