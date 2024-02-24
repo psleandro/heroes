@@ -2,13 +2,13 @@ import Link, { type LinkProps } from 'next/link';
 import { HtmlHTMLAttributes } from 'react';
 import { cn } from '~/lib/utils';
 
-type ApparitionHeaderLinkProps = HtmlHTMLAttributes<HTMLAnchorElement> &
+type SectionListHeaderLinkProps = HtmlHTMLAttributes<HTMLAnchorElement> &
   LinkProps;
 
-const ApparitionHeaderLink = async ({
+const SectionListHeaderLink = async ({
   className,
   ...props
-}: ApparitionHeaderLinkProps) => (
+}: SectionListHeaderLinkProps) => (
   <Link
     className={cn(
       'font-medium text-white transition-all hover:underline',
@@ -20,6 +20,6 @@ const ApparitionHeaderLink = async ({
   </Link>
 );
 
-ApparitionHeaderLink.displayName = 'ApparitionHeaderLink';
+SectionListHeaderLink.displayName = 'SectionListHeaderLink';
 
-export { ApparitionHeaderLink };
+export { SectionListHeaderLink };

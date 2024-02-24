@@ -5,7 +5,8 @@ import {
   getCharacterSeriesById,
   getCharacterStoriesById,
 } from '~/services';
-import { CharacterApparition, CharacterInfo } from './components';
+import { CharacterInfo } from './components';
+import { SectionList } from '../SectionList';
 
 type CharacterDetailedProps = {
   characterId: string;
@@ -23,54 +24,54 @@ const CharacterDetailed = async ({ characterId }: CharacterDetailedProps) => {
       <CharacterInfo characterId={characterId} />
 
       {character.comics.items?.length && (
-        <CharacterApparition className="before:-skew-y-2 before:bg-red-400">
-          <CharacterApparition.Header>
-            <CharacterApparition.Title>Comics</CharacterApparition.Title>
-            <CharacterApparition.Link href={`#comics${characterId}`} />
-          </CharacterApparition.Header>
+        <SectionList className="before:-skew-y-2 before:bg-red-400">
+          <SectionList.Header>
+            <SectionList.Title>Comics</SectionList.Title>
+            <SectionList.Link href={`#comics${characterId}`} />
+          </SectionList.Header>
 
-          <CharacterApparition.Carousel
+          <SectionList.Carousel
             fetchFn={() => getCharacterComicsById(characterId)}
           />
-        </CharacterApparition>
+        </SectionList>
       )}
 
       {character.events.items?.length && (
-        <CharacterApparition className="before:bg-blue-400">
-          <CharacterApparition.Header>
-            <CharacterApparition.Title>Events</CharacterApparition.Title>
-            <CharacterApparition.Link href={`#events${characterId}`} />
-          </CharacterApparition.Header>
-          <CharacterApparition.Carousel
+        <SectionList className="before:bg-blue-400">
+          <SectionList.Header>
+            <SectionList.Title>Events</SectionList.Title>
+            <SectionList.Link href={`#events${characterId}`} />
+          </SectionList.Header>
+          <SectionList.Carousel
             fetchFn={() => getCharacterEventsById(characterId)}
           />
-        </CharacterApparition>
+        </SectionList>
       )}
 
       {character.series.items?.length && (
-        <CharacterApparition className="before:bg-green-400">
-          <CharacterApparition.Header>
-            <CharacterApparition.Title>Series</CharacterApparition.Title>
-            <CharacterApparition.Link href={`#series${characterId}`} />
-          </CharacterApparition.Header>
+        <SectionList className="before:bg-green-400">
+          <SectionList.Header>
+            <SectionList.Title>Series</SectionList.Title>
+            <SectionList.Link href={`#series${characterId}`} />
+          </SectionList.Header>
 
-          <CharacterApparition.Carousel
+          <SectionList.Carousel
             fetchFn={() => getCharacterSeriesById(characterId)}
           />
-        </CharacterApparition>
+        </SectionList>
       )}
 
       {character.stories.items?.length && (
-        <CharacterApparition className="before:bg-indigo-400">
-          <CharacterApparition.Header>
-            <CharacterApparition.Title>Stories</CharacterApparition.Title>
-            <CharacterApparition.Link href={`#stories${characterId}`} />
-          </CharacterApparition.Header>
+        <SectionList className="before:bg-indigo-400">
+          <SectionList.Header>
+            <SectionList.Title>Stories</SectionList.Title>
+            <SectionList.Link href={`#stories${characterId}`} />
+          </SectionList.Header>
 
-          <CharacterApparition.Carousel
+          <SectionList.Carousel
             fetchFn={() => getCharacterStoriesById(characterId)}
           />
-        </CharacterApparition>
+        </SectionList>
       )}
     </>
   );

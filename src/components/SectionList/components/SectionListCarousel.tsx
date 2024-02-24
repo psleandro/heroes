@@ -6,20 +6,17 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '~/components/ui/carousel';
-import { Character, Comic, DataWrapper, Event, Serie, Story } from '~/types';
-import { Creator } from '~/types/marvel/creators';
+import type { Comic, DataWrapper, MarvelApiEntity } from '~/types';
 
-type ApparitionType = Comic | Event | Serie | Story | Character | Creator;
-
-type ApparitionCarouselProps<T extends ApparitionType> = {
+type SectionListCarouselProps<T extends MarvelApiEntity> = {
   fetchFn: () => Promise<DataWrapper<T>>;
   getTitle?: (item: T) => string;
 };
 
-const ApparitionCarousel = async <T extends ApparitionType>({
+const SectionListCarousel = async <T extends MarvelApiEntity>({
   fetchFn,
   getTitle = (item: T) => (item as Comic).title ?? '',
-}: ApparitionCarouselProps<T>) => {
+}: SectionListCarouselProps<T>) => {
   const { data } = await fetchFn();
 
   return (
@@ -60,6 +57,6 @@ const ApparitionCarousel = async <T extends ApparitionType>({
   );
 };
 
-ApparitionCarousel.displayName = 'ApparitionCarousel';
+SectionListCarousel.displayName = 'SectionListCarousel';
 
-export { ApparitionCarousel };
+export { SectionListCarousel };
