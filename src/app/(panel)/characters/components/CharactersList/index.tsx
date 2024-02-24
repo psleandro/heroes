@@ -1,6 +1,6 @@
 import { getCharacters } from '~/services';
-import { CharacterCard } from './components';
-import { CharacterListSkeleton } from './CharacterListSkeleton';
+import { Card } from '~/components/Card';
+import { CardList } from '~/components/CardList';
 import { Pagination } from '~/components/Pagination';
 import type { PaginationModelWithSearch } from '~/types';
 
@@ -15,16 +15,26 @@ const CharactersList = async ({ searchParams }: CharactersListProps) => {
 
   return (
     <>
-      <ul className="flex flex-wrap gap-8 gap-y-16">
-        {result.data.results?.map((result) => (
-          <li
-            key={result.id}
-            className="flex min-w-36 flex-1 md:min-w-48 lg:min-w-60 xl:w-72 xl:max-w-72"
-          >
-            <CharacterCard {...result} />
-          </li>
-        ))}
-      </ul>
+      <CardList>
+        {result.data.results?.map(
+          ({ id, name, thumbnail, comics, stories, series, events }) => (
+            <Card key={id} element="li">
+              <Card.Image
+                src={`${thumbnail.path}.${thumbnail.extension}`}
+                alt={name}
+                linkProps={{ href: `/characters/${id}` }}
+              />
+              <Card.Title>{name}</Card.Title>
+              <Card.TagsList>
+                <Card.TagsListItem type="comic" quantity={comics.available} />
+                <Card.TagsListItem type="story" quantity={stories.available} />
+                <Card.TagsListItem type="serie" quantity={series.available} />
+                <Card.TagsListItem type="event" quantity={events.available} />
+              </Card.TagsList>
+            </Card>
+          ),
+        )}
+      </CardList>
 
       <Pagination
         model={{ page: searchParams.page, pageSize: searchParams.pageSize }}
@@ -35,6 +45,6 @@ const CharactersList = async ({ searchParams }: CharactersListProps) => {
   );
 };
 
-CharactersList.Skeleton = CharacterListSkeleton;
+CharactersList.Skeleton = CardList.Skeleton;
 
 export { CharactersList };

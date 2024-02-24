@@ -1,9 +1,10 @@
 import { Pagination } from '~/components/Pagination';
 import { Skeleton } from '~/components/ui/skeleton';
+import { CardList } from '.';
 
-const CharacterListSkeleton = () => (
+const CardListSkeleton = () => (
   <>
-    <ul className="flex flex-wrap gap-8 gap-y-16">
+    <CardList>
       {Array.from({ length: 20 })?.map((_, index) => (
         <li
           key={index}
@@ -19,9 +20,9 @@ const CharacterListSkeleton = () => (
           </ul>
         </li>
       ))}
-    </ul>
+    </CardList>
     <Pagination.Skeleton />
   </>
 );
 
-export { CharacterListSkeleton };
+export { CardListSkeleton };

@@ -1,7 +1,7 @@
 import { getComics } from '~/services';
+import { Card } from '~/components/Card';
+import { CardList } from '~/components/CardList';
 import { Pagination } from '~/components/Pagination';
-import { ComicCard } from './components';
-import { ComicListSkeleton } from './ComicListSkeleton';
 import type { PaginationModelWithSearch } from '~/types';
 
 type ComicsListProps = {
@@ -15,16 +15,36 @@ const ComicsList = async ({ searchParams }: ComicsListProps) => {
 
   return (
     <>
-      <ul className="flex flex-wrap gap-8 gap-y-16">
+      <CardList>
         {result.data.results?.map((comic) => (
-          <li
-            key={comic.id}
-            className="flex min-w-36 flex-1 md:min-w-48 lg:min-w-60 xl:w-72 xl:max-w-72"
-          >
-            <ComicCard comic={comic} />
-          </li>
+          <Card key={comic.id} element="li">
+            <Card.Image
+              src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
+              alt={comic.title ?? ''}
+              linkProps={{ href: `/comics/${comic.id}` }}
+            />
+            <Card.Title>{comic.title}</Card.Title>
+            <Card.TagsList>
+              <Card.TagsListItem
+                type="creator"
+                quantity={comic.creators?.available}
+              />
+              <Card.TagsListItem
+                type="character"
+                quantity={comic.characters?.available}
+              />
+              <Card.TagsListItem
+                type="story"
+                quantity={comic.stories?.available}
+              />
+              <Card.TagsListItem
+                type="event"
+                quantity={comic.events?.available}
+              />
+            </Card.TagsList>
+          </Card>
         ))}
-      </ul>
+      </CardList>
 
       <Pagination
         model={{ page: searchParams.page, pageSize: searchParams.pageSize }}
@@ -35,6 +55,6 @@ const ComicsList = async ({ searchParams }: ComicsListProps) => {
   );
 };
 
-ComicsList.Skeleton = ComicListSkeleton;
+ComicsList.Skeleton = CardList.Skeleton;
 
 export { ComicsList };
