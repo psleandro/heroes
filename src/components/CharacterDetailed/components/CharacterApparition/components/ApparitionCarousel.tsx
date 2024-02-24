@@ -6,14 +6,19 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '~/components/ui/carousel';
-import { Comic, DataWrapper, Event, Serie, Story } from '~/types';
+import { Character, Comic, DataWrapper, Event, Serie, Story } from '~/types';
+import { Creator } from '~/types/marvel/creators';
 
-type ApparitionCarouselProps<T extends Comic | Event | Serie | Story> = {
+type ApparitionType = Comic | Event | Serie | Story | Character | Creator;
+
+type ApparitionCarouselProps<T extends ApparitionType> = {
   fetchFn: () => Promise<DataWrapper<T>>;
+  getTitle?: (item: T) => string;
 };
 
-const ApparitionCarousel = async <T extends Comic | Event | Serie | Story>({
+const ApparitionCarousel = async <T extends ApparitionType>({
   fetchFn,
+  getTitle = (item: T) => (item as Comic).title ?? '',
 }: ApparitionCarouselProps<T>) => {
   const { data } = await fetchFn();
 
@@ -34,16 +39,16 @@ const ApparitionCarousel = async <T extends Comic | Event | Serie | Story>({
                       ? `${item.thumbnail?.path}.${item.thumbnail?.extension}`
                       : '/imgs/no-image.png'
                   }
-                  alt={item.title ?? ''}
+                  alt={getTitle(item)}
                   className="rounded-sm object-cover"
                 />
               </span>
 
               <p
                 className="h-10 text-ellipsis text-sm text-gray-900"
-                title={item.title}
+                title={getTitle(item)}
               >
-                {item.title}
+                {getTitle(item)}
               </p>
             </CarouselItem>
           ))}
