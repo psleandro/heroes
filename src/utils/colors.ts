@@ -9,6 +9,15 @@ export const bgColorByEntityType: Record<MarvelApiEntityType, string> = {
   story: 'bg-indigo-400',
 };
 
+export const bgHoverColorByEntityType: Record<MarvelApiEntityType, string> = {
+  character: 'hover:bg-emerald-400',
+  comic: 'hover:bg-red-400',
+  creator: 'hover:bg-amber-400',
+  event: 'hover:bg-blue-400',
+  serie: 'hover:bg-green-400',
+  story: 'hover:bg-indigo-400',
+};
+
 export const beforeBgColorByEntityType: Record<MarvelApiEntityType, string> = {
   character: 'before:bg-emerald-400',
   comic: 'before:bg-red-400',
