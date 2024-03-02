@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { getEventById } from '~/services';
+import { getImageUrl } from '~/utils';
 
 type EventInfoProps = {
   eventId: string;
@@ -12,7 +13,7 @@ const EventInfo = async ({ eventId }: EventInfoProps) => {
     <div className="flex justify-center gap-8 p-12">
       <span className="relative aspect-square h-full w-4/12 overflow-hidden rounded-md shadow-lg">
         <Image
-          src={`${event.thumbnail?.path}.${event.thumbnail?.extension}`}
+          src={getImageUrl(event.thumbnail)}
           alt={event.title ?? eventId}
           fill
         />

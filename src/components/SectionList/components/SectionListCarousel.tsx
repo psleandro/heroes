@@ -6,6 +6,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '~/components/ui/carousel';
+import { getImageUrl } from '~/utils';
 import type { Comic, DataWrapper, MarvelApiEntity } from '~/types';
 
 type SectionListCarouselProps<T extends MarvelApiEntity> = {
@@ -31,11 +32,7 @@ const SectionListCarousel = async <T extends MarvelApiEntity>({
               <span className="relative min-h-48 flex-1 shadow-md">
                 <Image
                   fill
-                  src={
-                    item.thumbnail
-                      ? `${item.thumbnail?.path}.${item.thumbnail?.extension}`
-                      : '/imgs/no-image.png'
-                  }
+                  src={getImageUrl(item.thumbnail)}
                   alt={getTitle(item)}
                   className="rounded-sm object-cover"
                 />

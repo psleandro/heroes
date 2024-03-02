@@ -2,6 +2,7 @@ import { getComics } from '~/services';
 import { Card } from '~/components/Card';
 import { CardList } from '~/components/CardList';
 import { Pagination } from '~/components/Pagination';
+import { getImageUrl } from '~/utils';
 import type { PaginationModelWithSearch } from '~/types';
 
 type ComicsListProps = {
@@ -19,7 +20,7 @@ const ComicsList = async ({ searchParams }: ComicsListProps) => {
         {result.data.results?.map((comic) => (
           <Card key={comic.id} element="li">
             <Card.Image
-              src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
+              src={getImageUrl(comic.thumbnail)}
               alt={comic.title ?? ''}
               linkProps={{ href: `/comics/${comic.id}` }}
             />

@@ -1,6 +1,7 @@
 import { type ReactNode } from 'react';
 import Image from 'next/image';
 import { getComicById } from '~/services';
+import { getImageUrl } from '~/utils';
 
 type ComicInfoProps = {
   comicId: string;
@@ -25,7 +26,7 @@ const ComicInfo = async ({ comicId }: ComicInfoProps) => {
     <div className="flex justify-center gap-8 p-12">
       <span className="relative aspect-square h-full w-4/12 overflow-hidden rounded-md shadow-lg">
         <Image
-          src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
+          src={getImageUrl(comic.thumbnail)}
           alt={comic.title ?? comicId}
           fill
         />

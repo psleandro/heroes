@@ -2,6 +2,7 @@ import { getEvents } from '~/services';
 import { Card } from '~/components/Card';
 import { CardList } from '~/components/CardList';
 import { Pagination } from '~/components/Pagination';
+import { getImageUrl } from '~/utils';
 import type { PaginationModelWithSearch } from '~/types';
 
 type EventsListProps = {
@@ -19,7 +20,7 @@ const EventsList = async ({ searchParams }: EventsListProps) => {
         {result.data.results?.map((event) => (
           <Card key={event.id} element="li">
             <Card.Image
-              src={`${event.thumbnail?.path}.${event.thumbnail?.extension}`}
+              src={getImageUrl(event.thumbnail)}
               alt={event.title ?? ''}
               linkProps={{ href: `/events/${event.id}` }}
             />

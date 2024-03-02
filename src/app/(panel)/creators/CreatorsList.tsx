@@ -2,6 +2,7 @@ import { getCreators } from '~/services';
 import { Card } from '~/components/Card';
 import { CardList } from '~/components/CardList';
 import { Pagination } from '~/components/Pagination';
+import { getImageUrl } from '~/utils';
 import type { PaginationModelWithSearch } from '~/types';
 
 type CreatorsListProps = {
@@ -19,7 +20,7 @@ const CreatorsList = async ({ searchParams }: CreatorsListProps) => {
         {result.data.results?.map((creator) => (
           <Card key={creator.id} element="li">
             <Card.Image
-              src={`${creator.thumbnail?.path}.${creator.thumbnail?.extension}`}
+              src={getImageUrl(creator.thumbnail)}
               alt={creator.fullName ?? ''}
               linkProps={{ href: `/creators/${creator.id}` }}
             />

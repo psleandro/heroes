@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { getStoryById } from '~/services';
+import { getImageUrl } from '~/utils';
 
 type StoryInfoProps = {
   storyId: string;
@@ -12,11 +13,7 @@ const StoryInfo = async ({ storyId }: StoryInfoProps) => {
     <div className="flex justify-center gap-8 p-12">
       <span className="relative aspect-square h-full w-4/12 overflow-hidden rounded-md shadow-lg">
         <Image
-          src={
-            story.thumbnail
-              ? `${story.thumbnail?.path}.${story.thumbnail?.extension}`
-              : '/imgs/no-image.png'
-          }
+          src={getImageUrl(story.thumbnail)}
           alt={story.title ?? storyId}
           fill
         />

@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { getCreatorById } from '~/services';
+import { getImageUrl } from '~/utils';
 
 type CreatorInfoProps = {
   creatorId: string;
@@ -12,7 +13,7 @@ const CreatorInfo = async ({ creatorId }: CreatorInfoProps) => {
     <div className="flex justify-center gap-8 p-12">
       <span className="relative aspect-square h-full w-4/12 overflow-hidden rounded-md shadow-lg">
         <Image
-          src={`${creator.thumbnail?.path}.${creator.thumbnail?.extension}`}
+          src={getImageUrl(creator.thumbnail)}
           alt={creator.fullName ?? creatorId}
           fill
         />

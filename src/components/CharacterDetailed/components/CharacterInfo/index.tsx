@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { getCharacterById } from '~/services';
+import { getImageUrl } from '~/utils';
 
 type CharacterInfoProps = {
   characterId: string;
@@ -12,7 +13,7 @@ const CharacterInfo = async ({ characterId }: CharacterInfoProps) => {
     <div className="flex justify-center gap-8 p-12">
       <span className="relative aspect-square h-full w-4/12 overflow-hidden rounded-md shadow-lg">
         <Image
-          src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+          src={getImageUrl(character.thumbnail)}
           alt={character.name}
           fill
         />
