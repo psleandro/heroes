@@ -44,7 +44,7 @@ const SearchInput = ({
 
   return (
     <Input
-      placeholder="Search heroes by name..."
+      placeholder="Search by name..."
       {...props}
       startIcon={<SearchIcon size={20} />}
       value={searchText}

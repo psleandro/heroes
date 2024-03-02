@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import { CreatorsList } from './components';
-import { SearchInput } from '../characters/components';
+import { SearchInput } from '~/components/SearchInput';
 import type { PaginationModelWithSearch } from '~/types';
 
 type CreatorsPageProps = {
