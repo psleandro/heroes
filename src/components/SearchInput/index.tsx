@@ -31,6 +31,7 @@ const SearchInput = ({
         current.delete(searchQueryKey);
       } else {
         current.set(searchQueryKey, newSearchText);
+        current.set('page', '1');
       }
 
       const search = current.toString();
