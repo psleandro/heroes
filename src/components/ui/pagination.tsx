@@ -59,6 +59,7 @@ const PaginationLink = ({
           variant: isActive ? 'outline' : 'ghost',
           size,
         }),
+        'h-auto p-2 lg:p-3',
         className,
       )}
       {...props}
@@ -140,6 +141,27 @@ const PaginationEllipsis = ({
   </span>
 );
 
+const PaginationItemsInfo = ({
+  currentPage,
+  pageSize,
+  total,
+}: {
+  pageSize: number | string;
+  currentPage: number;
+  total: number;
+}) => {
+  const lastItemCount = currentPage * Number(pageSize);
+  const firstItemCount = lastItemCount - Number(pageSize) + 1;
+
+  return (
+    <p className="mr-2 text-sm italic text-gray-500">
+      {firstItemCount}-{lastItemCount > total ? total : lastItemCount} of{' '}
+      {total} items
+    </p>
+  );
+};
+PaginationPrevious.displayName = 'PaginationItemsInfo';
+
 export {
   Pagination,
   PaginationContent,
@@ -150,4 +172,5 @@ export {
   PaginationPrevious,
   PaginationNext,
   PaginationLast,
+  PaginationItemsInfo,
 };

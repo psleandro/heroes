@@ -3,11 +3,12 @@ import {
   Pagination,
   PaginationContent,
   PaginationFirst,
+  PaginationItemsInfo,
   PaginationLast,
-  PaginationLink,
   PaginationNext,
   PaginationPrevious,
 } from '~/components/ui/pagination';
+import { PaginationCurrent } from './PaginationCurrent';
 import { PaginationSkeleton } from './PaginationSkeleton';
 import type { PaginationModel } from '~/types';
 
@@ -28,6 +29,12 @@ const PaginationComponent = ({
 
   return (
     <Pagination className="flex-col items-center gap-2 sm:flex-row sm:justify-end">
+      <PaginationItemsInfo
+        total={total}
+        currentPage={currentPage}
+        pageSize={pageSize}
+      />
+
       <PaginationContent>
         <PaginationFirst href={hrefToPage(1)} />
 
@@ -35,9 +42,7 @@ const PaginationComponent = ({
           href={hrefToPage(currentPage > 1 ? currentPage - 1 : 1)}
         />
 
-        <PaginationLink href={hrefToPage(currentPage)} isActive={true}>
-          {currentPage}
-        </PaginationLink>
+        <PaginationCurrent currentPage={currentPage} totalPages={totalPages} />
 
         <PaginationNext
           href={hrefToPage(
