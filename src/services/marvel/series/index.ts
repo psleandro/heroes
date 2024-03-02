@@ -1,6 +1,14 @@
 import { marvelApi } from '../api';
 import { getPaginationQuery, getSearchQuery } from '~/utils';
-import type { Serie, DataWrapper, PaginationModelWithSearch } from '~/types';
+import type {
+  Comic,
+  Serie,
+  DataWrapper,
+  PaginationModelWithSearch,
+  Story,
+  Character,
+  Creator,
+} from '~/types';
 
 export const getSeries = async ({
   search,
@@ -10,4 +18,28 @@ export const getSeries = async ({
   return marvelApi<DataWrapper<Serie>>(
     `/series?${getPaginationQuery(page, pageSize)}&${getSearchQuery(search, 'titleStartsWith')}`,
   );
+};
+
+export const getSerieById = async (serieId: string | number) => {
+  return marvelApi<DataWrapper<Serie>>(`/series/${serieId}`);
+};
+
+export const getSerieCharactersById = async (serieId: string | number) => {
+  return marvelApi<DataWrapper<Character>>(`/series/${serieId}/characters`);
+};
+
+export const getSerieComicsById = async (serieId: string | number) => {
+  return marvelApi<DataWrapper<Comic>>(`/series/${serieId}/comics`);
+};
+
+export const getSerieCreatorsById = async (serieId: string | number) => {
+  return marvelApi<DataWrapper<Creator>>(`/series/${serieId}/creators`);
+};
+
+export const getSerieEventsById = async (serieId: string | number) => {
+  return marvelApi<DataWrapper<Event>>(`/series/${serieId}/events`);
+};
+
+export const getSerieStoriesById = async (serieId: string | number) => {
+  return marvelApi<DataWrapper<Story>>(`/series/${serieId}/stories`);
 };
