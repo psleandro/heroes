@@ -6,11 +6,7 @@ type StoryInfoProps = {
 };
 
 const StoryInfo = async ({ storyId }: StoryInfoProps) => {
-  const {
-    data: {
-      results: [story],
-    },
-  } = await getStoryById(storyId);
+  const story = await getStoryById(storyId);
 
   return (
     <div className="flex justify-center gap-8 p-12">

@@ -22,7 +22,8 @@ export const getEvents = async ({
 };
 
 export const getEventById = async (eventId: string | number) => {
-  return marvelApi<DataWrapper<Event>>(`/events/${eventId}`);
+  const { data } = await marvelApi<DataWrapper<Event>>(`/events/${eventId}`);
+  return data.results[0];
 };
 
 export const getEventCharactersById = async (eventId: string | number) => {

@@ -20,7 +20,8 @@ export const getComics = async ({
 };
 
 export const getComicById = async (comicId: string | number) => {
-  return marvelApi<DataWrapper<Comic>>(`/comics/${comicId}`);
+  const { data } = await marvelApi<DataWrapper<Comic>>(`/comics/${comicId}`);
+  return data.results[0];
 };
 
 export const getComicCharactersById = async (comicId: string | number) => {

@@ -20,7 +20,10 @@ export const getCharacters = async ({
 };
 
 export const getCharacterById = async (characterId: string | number) => {
-  return marvelApi<DataWrapper<Character>>(`/characters/${characterId}`);
+  const { data } = await marvelApi<DataWrapper<Character>>(
+    `/characters/${characterId}`,
+  );
+  return data.results[0];
 };
 
 export const getCharacterComicsById = async (characterId: string | number) => {

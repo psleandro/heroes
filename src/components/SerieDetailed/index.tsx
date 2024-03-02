@@ -14,11 +14,7 @@ type SerieDetailedProps = {
 };
 
 const SerieDetailed = async ({ serieId }: SerieDetailedProps) => {
-  const {
-    data: {
-      results: [serie],
-    },
-  } = await getSerieById(serieId);
+  const serie = await getSerieById(serieId);
 
   return (
     <>

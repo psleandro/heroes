@@ -19,11 +19,7 @@ const ListItemValue = ({ children }: { children: ReactNode }) => (
 );
 
 const ComicInfo = async ({ comicId }: ComicInfoProps) => {
-  const {
-    data: {
-      results: [comic],
-    },
-  } = await getComicById(comicId);
+  const comic = await getComicById(comicId);
 
   return (
     <div className="flex justify-center gap-8 p-12">

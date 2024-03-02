@@ -13,11 +13,7 @@ type CreatorDetailedProps = {
 };
 
 const CreatorDetailed = async ({ creatorId }: CreatorDetailedProps) => {
-  const {
-    data: {
-      results: [creator],
-    },
-  } = await getCreatorById(creatorId);
+  const creator = await getCreatorById(creatorId);
 
   return (
     <>

@@ -19,7 +19,8 @@ export const getStories = async ({
 };
 
 export const getStoryById = async (storieId: string | number) => {
-  return marvelApi<DataWrapper<Story>>(`/stories/${storieId}`);
+  const { data } = await marvelApi<DataWrapper<Story>>(`/stories/${storieId}`);
+  return data.results[0];
 };
 
 export const getStoryCharactersById = async (storieId: string | number) => {

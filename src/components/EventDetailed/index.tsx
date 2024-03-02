@@ -14,11 +14,7 @@ type EventDetailedProps = {
 };
 
 const EventDetailed = async ({ eventId }: EventDetailedProps) => {
-  const {
-    data: {
-      results: [event],
-    },
-  } = await getEventById(eventId);
+  const event = await getEventById(eventId);
 
   return (
     <>

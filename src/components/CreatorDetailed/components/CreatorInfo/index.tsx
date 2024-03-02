@@ -6,11 +6,7 @@ type CreatorInfoProps = {
 };
 
 const CreatorInfo = async ({ creatorId }: CreatorInfoProps) => {
-  const {
-    data: {
-      results: [creator],
-    },
-  } = await getCreatorById(creatorId);
+  const creator = await getCreatorById(creatorId);
 
   return (
     <div className="flex justify-center gap-8 p-12">

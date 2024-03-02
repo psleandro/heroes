@@ -20,7 +20,10 @@ export const getCreators = async ({
 };
 
 export const getCreatorById = async (creatorId: string | number) => {
-  return marvelApi<DataWrapper<Creator>>(`/creators/${creatorId}`);
+  const { data } = await marvelApi<DataWrapper<Creator>>(
+    `/creators/${creatorId}`,
+  );
+  return data.results[0];
 };
 
 export const getCreatorComicsById = async (creatorId: string | number) => {

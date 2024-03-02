@@ -13,11 +13,7 @@ type CharacterDetailedProps = {
 };
 
 const CharacterDetailed = async ({ characterId }: CharacterDetailedProps) => {
-  const {
-    data: {
-      results: [character],
-    },
-  } = await getCharacterById(characterId);
+  const character = await getCharacterById(characterId);
 
   return (
     <>

@@ -6,11 +6,7 @@ type SerieInfoProps = {
 };
 
 const SerieInfo = async ({ serieId }: SerieInfoProps) => {
-  const {
-    data: {
-      results: [serie],
-    },
-  } = await getSerieById(serieId);
+  const serie = await getSerieById(serieId);
 
   return (
     <div className="flex justify-center gap-8 p-12">

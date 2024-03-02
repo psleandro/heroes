@@ -13,11 +13,7 @@ type ComicDetailedProps = {
 };
 
 const ComicDetailed = async ({ comicId }: ComicDetailedProps) => {
-  const {
-    data: {
-      results: [comic],
-    },
-  } = await getComicById(comicId);
+  const comic = await getComicById(comicId);
 
   return (
     <>

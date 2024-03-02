@@ -21,7 +21,8 @@ export const getSeries = async ({
 };
 
 export const getSerieById = async (serieId: string | number) => {
-  return marvelApi<DataWrapper<Serie>>(`/series/${serieId}`);
+  const { data } = await marvelApi<DataWrapper<Serie>>(`/series/${serieId}`);
+  return data.results[0];
 };
 
 export const getSerieCharactersById = async (serieId: string | number) => {

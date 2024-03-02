@@ -6,11 +6,7 @@ type CharacterInfoProps = {
 };
 
 const CharacterInfo = async ({ characterId }: CharacterInfoProps) => {
-  const {
-    data: {
-      results: [character],
-    },
-  } = await getCharacterById(characterId);
+  const character = await getCharacterById(characterId);
 
   return (
     <div className="flex justify-center gap-8 p-12">

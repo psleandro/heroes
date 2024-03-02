@@ -14,11 +14,7 @@ type StoryDetailedProps = {
 };
 
 const StoryDetailed = async ({ storyId }: StoryDetailedProps) => {
-  const {
-    data: {
-      results: [story],
-    },
-  } = await getStoryById(storyId);
+  const story = await getStoryById(storyId);
 
   return (
     <>

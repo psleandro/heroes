@@ -6,11 +6,7 @@ type EventInfoProps = {
 };
 
 const EventInfo = async ({ eventId }: EventInfoProps) => {
-  const {
-    data: {
-      results: [event],
-    },
-  } = await getEventById(eventId);
+  const event = await getEventById(eventId);
 
   return (
     <div className="flex justify-center gap-8 p-12">
