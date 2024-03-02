@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import { CharactersList } from './components';
+import { CharactersList } from './CharactersList';
 import { SearchInput } from '~/components/SearchInput';
 import type { PaginationModelWithSearch } from '~/types';
 
