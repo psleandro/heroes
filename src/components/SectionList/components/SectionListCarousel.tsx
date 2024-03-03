@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import {
   Carousel,
   CarouselContent,
@@ -7,6 +6,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '~/components/ui/carousel';
+import { SectionListCarouselItemLink } from './SectionListCarouselItemLink';
 import { getImageUrl } from '~/utils';
 import type { DataWrapper, MarvelApiEntity } from '~/types';
 import { getEntityTitle } from '~/utils/marvelEntity';
@@ -34,8 +34,8 @@ const SectionListCarousel = async <T extends MarvelApiEntity>({
               key={item.id}
               className="group aspect-[2/3] max-w-40  sm:max-w-none sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5 2xl:basis-[10%]"
             >
-              <Link
-                href={`#${item.id}`}
+              <SectionListCarouselItemLink
+                itemId={item.id}
                 className="relative flex h-full flex-col gap-2 overflow-hidden rounded-sm"
               >
                 <span className="relative min-h-48 flex-1 shadow-md">
@@ -61,7 +61,7 @@ const SectionListCarousel = async <T extends MarvelApiEntity>({
                     {getEntityTitle(item)}
                   </strong>
                 </div>
-              </Link>
+              </SectionListCarouselItemLink>
             </CarouselItem>
           ))}
         </CarouselContent>
