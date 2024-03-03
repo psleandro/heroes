@@ -28,7 +28,6 @@ const EventDetailed = async ({ eventId }: EventDetailedProps) => {
           </SectionList.Header>
           <SectionList.Carousel
             fetchFn={() => getEventCharactersById(eventId)}
-            getTitle={(character) => character.name}
           />
         </SectionList>
       )}
@@ -51,10 +50,7 @@ const EventDetailed = async ({ eventId }: EventDetailedProps) => {
             <SectionList.Link href={`#creators${eventId}`} />
           </SectionList.Header>
 
-          <SectionList.Carousel
-            fetchFn={() => getEventCreatorsById(eventId)}
-            getTitle={(creator) => creator.fullName ?? ''}
-          />
+          <SectionList.Carousel fetchFn={() => getEventCreatorsById(eventId)} />
         </SectionList>
       )}
 

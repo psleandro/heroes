@@ -8,11 +8,11 @@ import {
   CarouselPrevious,
 } from '~/components/ui/carousel';
 import { getImageUrl } from '~/utils';
-import type { Comic, DataWrapper, MarvelApiEntity } from '~/types';
+import type { DataWrapper, MarvelApiEntity } from '~/types';
+import { getEntityTitle } from '~/utils/marvelEntity';
 
 type SectionListCarouselProps<T extends MarvelApiEntity> = {
   fetchFn: () => Promise<DataWrapper<T>>;
-  getTitle?: (item: T) => string;
 };
 
 const getYear = (date: string | Date | undefined) => {
@@ -22,7 +22,6 @@ const getYear = (date: string | Date | undefined) => {
 
 const SectionListCarousel = async <T extends MarvelApiEntity>({
   fetchFn,
-  getTitle = (item: T) => (item as Comic).title ?? '',
 }: SectionListCarouselProps<T>) => {
   const { data } = await fetchFn();
 
@@ -43,7 +42,7 @@ const SectionListCarousel = async <T extends MarvelApiEntity>({
                   <Image
                     fill
                     src={getImageUrl(item.thumbnail)}
-                    alt={getTitle(item)}
+                    alt={getEntityTitle(item)}
                     className="rounded-sm object-cover"
                   />
                 </span>
@@ -57,9 +56,9 @@ const SectionListCarousel = async <T extends MarvelApiEntity>({
 
                   <strong
                     className="line-clamp-3 text-xs text-white"
-                    title={getTitle(item)}
+                    title={getEntityTitle(item)}
                   >
-                    {getTitle(item)}
+                    {getEntityTitle(item)}
                   </strong>
                 </div>
               </Link>

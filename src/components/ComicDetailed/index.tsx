@@ -28,7 +28,6 @@ const ComicDetailed = async ({ comicId }: ComicDetailedProps) => {
 
           <SectionList.Carousel
             fetchFn={() => getComicCharactersById(comicId)}
-            getTitle={(character) => character.name}
           />
         </SectionList>
       )}
@@ -40,10 +39,7 @@ const ComicDetailed = async ({ comicId }: ComicDetailedProps) => {
             <SectionList.Link href={`#comics${comicId}`} />
           </SectionList.Header>
 
-          <SectionList.Carousel
-            fetchFn={() => getComicCreatorsById(comicId)}
-            getTitle={(creator) => creator.fullName ?? ''}
-          />
+          <SectionList.Carousel fetchFn={() => getComicCreatorsById(comicId)} />
         </SectionList>
       )}
 

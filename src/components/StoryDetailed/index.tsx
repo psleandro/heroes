@@ -28,7 +28,6 @@ const StoryDetailed = async ({ storyId }: StoryDetailedProps) => {
           </SectionList.Header>
           <SectionList.Carousel
             fetchFn={() => getStoryCharactersById(storyId)}
-            getTitle={(character) => character.name}
           />
         </SectionList>
       )}
@@ -51,10 +50,7 @@ const StoryDetailed = async ({ storyId }: StoryDetailedProps) => {
             <SectionList.Link href={`#creators${storyId}`} />
           </SectionList.Header>
 
-          <SectionList.Carousel
-            fetchFn={() => getStoryCreatorsById(storyId)}
-            getTitle={(creator) => creator.fullName ?? ''}
-          />
+          <SectionList.Carousel fetchFn={() => getStoryCreatorsById(storyId)} />
         </SectionList>
       )}
 
