@@ -7,7 +7,7 @@ import {
   getSerieEventsById,
 } from '~/services';
 import { SerieInfo } from './components';
-import { SectionList } from '../SectionList';
+import { SectionList } from '../../SectionList';
 
 type SerieDetailedProps = {
   serieId: string;

@@ -1,4 +1,4 @@
-import { EventDetailed } from '~/components/EventDetailed';
+import { EventDetailed } from '~/components/EntityDetails';
 
 type EventPageProps = {
   params: { eventId: string };

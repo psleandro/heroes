@@ -1,4 +1,4 @@
-import { ComicDetailed } from '~/components/ComicDetailed';
+import { ComicDetailed } from '~/components/EntityDetails';
 
 type ComicPageProps = {
   params: { comicId: string };

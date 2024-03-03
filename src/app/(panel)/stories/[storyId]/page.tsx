@@ -1,4 +1,4 @@
-import { StoryDetailed } from '~/components/StoryDetailed';
+import { StoryDetailed } from '~/components/EntityDetails';
 
 type StoryPageProps = {
   params: { storyId: string };

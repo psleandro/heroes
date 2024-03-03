@@ -7,7 +7,7 @@ import {
   getEventCreatorsById,
 } from '~/services';
 import { EventInfo } from './components';
-import { SectionList } from '../SectionList';
+import { SectionList } from '../../SectionList';
 
 type EventDetailedProps = {
   eventId: string;

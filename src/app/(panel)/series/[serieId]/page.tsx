@@ -1,4 +1,4 @@
-import { SerieDetailed } from '~/components/SerieDetailed';
+import { SerieDetailed } from '~/components/EntityDetails';
 
 type SeriePageProps = {
   params: { serieId: string };

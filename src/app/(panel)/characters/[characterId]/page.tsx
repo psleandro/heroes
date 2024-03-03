@@ -1,4 +1,4 @@
-import { CharacterDetailed } from '~/components/CharacterDetailed';
+import { CharacterDetailed } from '~/components/EntityDetails';
 
 type CharacterPageProps = {
   params: { characterId: string };

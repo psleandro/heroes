@@ -6,7 +6,7 @@ import {
   getCharacterStoriesById,
 } from '~/services';
 import { CharacterInfo } from './components';
-import { SectionList } from '../SectionList';
+import { SectionList } from '../../SectionList';
 
 type CharacterDetailedProps = {
   characterId: string;

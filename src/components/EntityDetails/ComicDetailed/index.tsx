@@ -6,7 +6,7 @@ import {
   getComicStoriesById,
 } from '~/services';
 import { ComicInfo } from './components';
-import { SectionList } from '../SectionList';
+import { SectionList } from '../../SectionList';
 
 type ComicDetailedProps = {
   comicId: string;

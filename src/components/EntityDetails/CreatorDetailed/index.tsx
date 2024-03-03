@@ -6,7 +6,7 @@ import {
   getCreatorStoriesById,
 } from '~/services';
 import { CreatorInfo } from './components';
-import { SectionList } from '../SectionList';
+import { SectionList } from '../../SectionList';
 
 type CreatorDetailedProps = {
   creatorId: string;

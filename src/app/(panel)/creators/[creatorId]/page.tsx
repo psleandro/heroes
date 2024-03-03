@@ -1,4 +1,4 @@
-import { CreatorDetailed } from '~/components/CreatorDetailed';
+import { CreatorDetailed } from '~/components/EntityDetails';
 
 type CreatorPageProps = {
   params: { creatorId: string };

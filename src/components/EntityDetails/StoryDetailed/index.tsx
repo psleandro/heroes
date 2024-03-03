@@ -7,7 +7,7 @@ import {
   getStoryEventsById,
 } from '~/services';
 import { StoryInfo } from './components';
-import { SectionList } from '../SectionList';
+import { SectionList } from '../../SectionList';
 
 type StoryDetailedProps = {
   storyId: string;
