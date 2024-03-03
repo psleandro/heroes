@@ -19,7 +19,7 @@ const CharacterDetailed = async ({ characterId }: CharacterDetailedProps) => {
     <>
       <CharacterInfo characterId={characterId} />
 
-      {character.comics.items?.length && (
+      {!!character.comics.items?.length && (
         <SectionList type="comic">
           <SectionList.Header>
             <SectionList.Title>Comics</SectionList.Title>
@@ -32,7 +32,7 @@ const CharacterDetailed = async ({ characterId }: CharacterDetailedProps) => {
         </SectionList>
       )}
 
-      {character.events.items?.length && (
+      {!!character.events.items?.length && (
         <SectionList type="event">
           <SectionList.Header>
             <SectionList.Title>Events</SectionList.Title>
@@ -44,7 +44,7 @@ const CharacterDetailed = async ({ characterId }: CharacterDetailedProps) => {
         </SectionList>
       )}
 
-      {character.series.items?.length && (
+      {!!character.series.items?.length && (
         <SectionList type="serie">
           <SectionList.Header>
             <SectionList.Title>Series</SectionList.Title>
@@ -57,7 +57,7 @@ const CharacterDetailed = async ({ characterId }: CharacterDetailedProps) => {
         </SectionList>
       )}
 
-      {character.stories.items?.length && (
+      {!!character.stories.items?.length && (
         <SectionList type="story">
           <SectionList.Header>
             <SectionList.Title>Stories</SectionList.Title>
