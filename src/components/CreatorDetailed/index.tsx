@@ -20,7 +20,7 @@ const CreatorDetailed = async ({ creatorId }: CreatorDetailedProps) => {
       <CreatorInfo creatorId={creatorId} />
 
       {!!creator.comics?.items?.length && (
-        <SectionList type="character">
+        <SectionList type="comic">
           <SectionList.Header>
             <SectionList.Title>Comics</SectionList.Title>
             <SectionList.Link href={`#comics${creatorId}`} />
@@ -58,7 +58,7 @@ const CreatorDetailed = async ({ creatorId }: CreatorDetailedProps) => {
       )}
 
       {!!creator.series?.items?.length && (
-        <SectionList type="creator">
+        <SectionList type="serie">
           <SectionList.Header>
             <SectionList.Title>Series</SectionList.Title>
             <SectionList.Link href={`#series${creatorId}`} />

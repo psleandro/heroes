@@ -66,7 +66,7 @@ const StoryDetailed = async ({ storyId }: StoryDetailedProps) => {
       )}
 
       {!!story.series?.items?.length && (
-        <SectionList type="story">
+        <SectionList type="serie">
           <SectionList.Header>
             <SectionList.Title>Series</SectionList.Title>
             <SectionList.Link href={`#series${storyId}`} />
