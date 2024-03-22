@@ -1,5 +1,5 @@
 import { marvelApi } from '../api';
-import { getPaginationQuery, getSearchQuery } from '~/utils';
+import { getPaginationQuery, parseObjectToSearchParams } from '~/utils';
 import type {
   Character,
   CharactersListParameters,
@@ -10,12 +10,12 @@ import type {
 } from '~/types';
 
 export const getCharacters = async ({
-  nameStartsWith,
   page,
   pageSize,
+  ...restParameters
 }: CharactersListParameters) => {
   return marvelApi<DataWrapper<Character>>(
-    `/characters?${getPaginationQuery(page, pageSize)}&${getSearchQuery(nameStartsWith)}`,
+    `/characters?${getPaginationQuery(page, pageSize)}&${parseObjectToSearchParams(restParameters)}`,
   );
 };
 
