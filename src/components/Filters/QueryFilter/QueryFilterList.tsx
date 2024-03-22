@@ -2,15 +2,22 @@
 import { QueryFilter } from './QueryFilter';
 import { AddFilterButton } from './AddFilterButton';
 
-const validFiltersKeys = ['comics', 'series', 'events', 'stories'];
-
-const identifyQueryFilters = (searchParams: object) => {
+const identifyQueryFilters = (
+  searchParams: object,
+  validFiltersKeys: string[],
+) => {
   const keys = Object.keys(searchParams);
   return keys.filter((filterKey) => validFiltersKeys.includes(filterKey));
 };
 
-const QueryFilterList = ({ searchParams }: { searchParams: object }) => {
-  const filtersKeys = identifyQueryFilters(searchParams);
+const QueryFilterList = ({
+  searchParams,
+  validFiltersKeys,
+}: {
+  searchParams: object;
+  validFiltersKeys: string[];
+}) => {
+  const filtersKeys = identifyQueryFilters(searchParams, validFiltersKeys);
 
   const availableFilterKeys = validFiltersKeys.filter(
     (f) => !filtersKeys.includes(f),
