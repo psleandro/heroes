@@ -2,10 +2,10 @@ import { getCharacters } from '~/services';
 import { Card } from '~/components/Card';
 import { CardList } from '~/components/CardList';
 import { Pagination } from '~/components/Pagination';
-import type { PaginationModelWithSearch } from '~/types';
+import type { CharactersListParameters } from '~/types';
 
 type CharactersListProps = {
-  searchParams: PaginationModelWithSearch;
+  searchParams: CharactersListParameters;
 };
 
 const CharactersList = async ({ searchParams }: CharactersListProps) => {

@@ -4,5 +4,6 @@ export * from './common';
 export * from './creators';
 export * from './events';
 export * from './global';
+export * from './parameters';
 export * from './series';
 export * from './stories';
