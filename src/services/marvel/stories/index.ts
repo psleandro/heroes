@@ -1,5 +1,5 @@
 import { marvelApi } from '../api';
-import { getPaginationQuery } from '~/utils';
+import { getPaginationQuery, parseObjectToSearchParams } from '~/utils';
 import type {
   Comic,
   Story,
@@ -12,9 +12,10 @@ import type {
 export const getStories = async ({
   page,
   pageSize,
+  ...restParameters
 }: PaginationModelWithSearch) => {
   return marvelApi<DataWrapper<Story>>(
-    `/stories?${getPaginationQuery(page, pageSize)}`,
+    `/stories?${getPaginationQuery(page, pageSize)}&${parseObjectToSearchParams(restParameters)}`,
   );
 };
 

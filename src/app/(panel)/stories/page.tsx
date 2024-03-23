@@ -1,18 +1,45 @@
 import { Suspense } from 'react';
 import { StoriesList } from './StoriesList';
-import type { PaginationModelWithSearch } from '~/types';
+import { SearchInput } from '~/components/SearchInput';
+import { Filters, QueryFilterList } from '~/components/Filters';
+import type { StoriesListParameters } from '~/types';
 
 type StoriesPageProps = {
-  searchParams: PaginationModelWithSearch;
+  searchParams: StoriesListParameters;
 };
 
+const validFiltersKeys: Partial<keyof StoriesListParameters>[] = [
+  'characters',
+  'comics',
+  'creators',
+  'events',
+  'series',
+];
+
 export default async function StoriesPage({
-  searchParams: { page = '1', pageSize = '20' },
+  searchParams: { page = '1', pageSize = '20', ...searchParams },
 }: StoriesPageProps) {
   return (
     <div className="flex min-h-dvh flex-col gap-8 p-4 lg:p-16">
-      <Suspense key={`${page}${pageSize}`} fallback={<StoriesList.Skeleton />}>
-        <StoriesList searchParams={{ page, pageSize }} />
+      <Filters>
+        <SearchInput
+          searchQueryKey=""
+          placeholder="Search stories by name..."
+          initialValue={''}
+          disabled
+        />
+        <QueryFilterList
+          key={JSON.stringify(searchParams)}
+          validFiltersKeys={validFiltersKeys}
+          searchParams={searchParams}
+        />
+      </Filters>
+
+      <Suspense
+        key={`${page}${pageSize}${searchParams}`}
+        fallback={<StoriesList.Skeleton />}
+      >
+        <StoriesList searchParams={{ page, pageSize, ...searchParams }} />
       </Suspense>
     </div>
   );
