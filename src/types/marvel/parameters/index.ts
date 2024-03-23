@@ -40,3 +40,13 @@ export type CreatorsListParameters = PaginationModel & {
   events?: string;
   stories?: string;
 };
+
+export type EventsListParameters = PaginationModel & {
+  name?: string;
+  nameStartsWith?: string;
+  creators?: string;
+  characters?: string;
+  series?: string;
+  comics?: string;
+  stories?: string;
+};

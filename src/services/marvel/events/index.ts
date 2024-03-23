@@ -1,10 +1,10 @@
 import { marvelApi } from '../api';
-import { getPaginationQuery, getSearchQuery } from '~/utils';
+import { getPaginationQuery, parseObjectToSearchParams } from '~/utils';
 import type {
   Comic,
   Event,
   DataWrapper,
-  PaginationModelWithSearch,
+  EventsListParameters,
   Serie,
   Story,
   Character,
@@ -12,12 +12,12 @@ import type {
 } from '~/types';
 
 export const getEvents = async ({
-  search,
   page,
   pageSize,
-}: PaginationModelWithSearch) => {
+  ...restParameters
+}: EventsListParameters) => {
   return marvelApi<DataWrapper<Event>>(
-    `/events?${getPaginationQuery(page, pageSize)}&${getSearchQuery(search, 'nameStartsWith')}`,
+    `/events?${getPaginationQuery(page, pageSize)}&${parseObjectToSearchParams(restParameters)}`,
   );
 };
 
