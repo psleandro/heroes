@@ -3,10 +3,10 @@ import { Card } from '~/components/Card';
 import { CardList } from '~/components/CardList';
 import { Pagination } from '~/components/Pagination';
 import { getImageUrl } from '~/utils';
-import type { PaginationModelWithSearch } from '~/types';
+import type { CreatorsListParameters } from '~/types';
 
 type CreatorsListProps = {
-  searchParams: PaginationModelWithSearch;
+  searchParams: CreatorsListParameters;
 };
 
 const CreatorsList = async ({ searchParams }: CreatorsListProps) => {

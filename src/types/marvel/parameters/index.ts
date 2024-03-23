@@ -25,3 +25,18 @@ export type ComicsListParameters = PaginationModel & {
   events?: string;
   stories?: string;
 };
+
+export type CreatorsListParameters = PaginationModel & {
+  firstName?: string;
+  middleName?: string;
+  lastName?: string;
+  suffix?: string;
+  nameStartsWith?: string;
+  firstNameStartsWith?: string;
+  middleNameStartsWith?: string;
+  lastNameStartsWith?: string;
+  comics?: string;
+  series?: string;
+  events?: string;
+  stories?: string;
+};
