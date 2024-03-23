@@ -1,22 +1,22 @@
 import { marvelApi } from '../api';
-import { getPaginationQuery, getSearchQuery } from '~/utils';
+import { getPaginationQuery, parseObjectToSearchParams } from '~/utils';
 import type {
   Comic,
   Serie,
   DataWrapper,
-  PaginationModelWithSearch,
+  SeriesListParameters,
   Story,
   Character,
   Creator,
 } from '~/types';
 
 export const getSeries = async ({
-  search,
   page,
   pageSize,
-}: PaginationModelWithSearch) => {
+  ...restParameters
+}: SeriesListParameters) => {
   return marvelApi<DataWrapper<Serie>>(
-    `/series?${getPaginationQuery(page, pageSize)}&${getSearchQuery(search, 'titleStartsWith')}`,
+    `/series?${getPaginationQuery(page, pageSize)}&${parseObjectToSearchParams(restParameters)}`,
   );
 };
 
