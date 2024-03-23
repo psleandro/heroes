@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { CharactersList } from './CharactersList';
 import { SearchInput } from '~/components/SearchInput';
-import { QueryFilterList } from '~/components/Filters';
+import { Filters, QueryFilterList } from '~/components/Filters';
 import type { CharactersListParameters } from '~/types';
 
 type CharactersPageProps = {
@@ -20,18 +20,17 @@ export default async function CharactersPage({
 }: CharactersPageProps) {
   return (
     <div className="flex min-h-dvh flex-col gap-8 p-4 lg:p-16">
-      <div className="flex flex-col flex-wrap items-stretch gap-4 md:flex-row">
+      <Filters>
         <SearchInput
           searchQueryKey="nameStartsWith"
           initialValue={searchParams.nameStartsWith ?? ''}
-          rootProps={{ className: 'flex-1 min-w-[75%]' }}
         />
         <QueryFilterList
           key={JSON.stringify(searchParams)}
           validFiltersKeys={validFiltersKeys}
           searchParams={searchParams}
         />
-      </div>
+      </Filters>
 
       <Suspense
         key={`${page}${pageSize}${searchParams}`}

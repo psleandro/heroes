@@ -50,6 +50,7 @@ const SearchInput = ({
       startIcon={<SearchIcon size={20} />}
       value={searchText}
       onChange={(e) => setSearchText(e.target.value)}
+      rootProps={{ className: 'flex-1 min-w-[75%]' }}
     />
   );
 };
