@@ -1,4 +1,5 @@
 import { type HTMLAttributes } from 'react';
+import { CardContent } from './CardContent';
 import { CardTitle } from './CardTitle';
 import { CardTagsList } from './CardTagsList';
 import { CardTagsListItem } from './CardTagsListItem';
@@ -10,11 +11,12 @@ type CardProps = HTMLAttributes<HTMLDivElement> & {
 };
 
 const Card = ({ children, element: Element = 'span' }: CardProps) => (
-  <Element className="flex min-w-36 flex-1 md:min-w-48 lg:min-w-60 xl:w-72 xl:max-w-72">
-    <div className="flex flex-1 flex-col gap-3">{children}</div>
+  <Element className="group flex min-w-48 flex-1 overflow-hidden rounded-md shadow-md lg:min-w-60 xl:w-96 xl:min-w-80">
+    <span className="relative flex flex-1 flex-col">{children}</span>
   </Element>
 );
 
+Card.Content = CardContent;
 Card.Image = CardImage;
 Card.Title = CardTitle;
 Card.TagsList = CardTagsList;

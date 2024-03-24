@@ -24,25 +24,29 @@ const CreatorsList = async ({ searchParams }: CreatorsListProps) => {
               alt={creator.fullName ?? ''}
               linkProps={{ href: `/creators/${creator.id}` }}
             />
-            <Card.Title>{creator.fullName}</Card.Title>
-            <Card.TagsList from="creators" entityId={creator.id}>
-              <Card.TagsListItem
-                type="comic"
-                quantity={creator.comics?.available}
-              />
-              <Card.TagsListItem
-                type="event"
-                quantity={creator.events?.available}
-              />
-              <Card.TagsListItem
-                type="serie"
-                quantity={creator.series?.available}
-              />
-              <Card.TagsListItem
-                type="story"
-                quantity={creator.stories?.available}
-              />
-            </Card.TagsList>
+            <Card.Content>
+              <Card.Title href={`/creators/${creator.id}`}>
+                {creator.fullName}
+              </Card.Title>
+              <Card.TagsList from="creators" entityId={creator.id}>
+                <Card.TagsListItem
+                  type="comic"
+                  quantity={creator.comics?.available}
+                />
+                <Card.TagsListItem
+                  type="event"
+                  quantity={creator.events?.available}
+                />
+                <Card.TagsListItem
+                  type="serie"
+                  quantity={creator.series?.available}
+                />
+                <Card.TagsListItem
+                  type="story"
+                  quantity={creator.stories?.available}
+                />
+              </Card.TagsList>
+            </Card.Content>
           </Card>
         ))}
       </CardList>

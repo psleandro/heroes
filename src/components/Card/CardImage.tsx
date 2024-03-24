@@ -7,12 +7,12 @@ type CardImageProps = ImageProps & {
 
 const CardImage = ({ linkProps, ...props }: CardImageProps) => (
   <Link
-    className="relative aspect-square overflow-hidden rounded-md object-cover shadow-lg hover:cursor-pointer"
+    className="relative aspect-square overflow-hidden object-cover shadow-lg group-hover:cursor-pointer"
     {...linkProps}
     href={linkProps?.href ?? '#'}
   >
     <Image
-      className="transition-all duration-500 hover:scale-110"
+      className="transition-all duration-500 group-hover:scale-110"
       fill
       {...props}
       alt={props.alt}

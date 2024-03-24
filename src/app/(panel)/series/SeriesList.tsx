@@ -24,29 +24,33 @@ const SeriesList = async ({ searchParams }: SeriesListProps) => {
               alt={serie.title ?? ''}
               linkProps={{ href: `/series/${serie.id}` }}
             />
-            <Card.Title>{serie.title}</Card.Title>
-            <Card.TagsList from="series" entityId={serie.id}>
-              <Card.TagsListItem
-                type="character"
-                quantity={serie.characters?.available}
-              />
-              <Card.TagsListItem
-                type="comic"
-                quantity={serie.comics?.available}
-              />
-              <Card.TagsListItem
-                type="creator"
-                quantity={serie.creators?.available}
-              />
-              <Card.TagsListItem
-                type="event"
-                quantity={serie.events?.available}
-              />
-              <Card.TagsListItem
-                type="story"
-                quantity={serie.stories?.available}
-              />
-            </Card.TagsList>
+            <Card.Content>
+              <Card.Title href={`/series/${serie.id}`}>
+                {serie.title}
+              </Card.Title>
+              <Card.TagsList from="series" entityId={serie.id}>
+                <Card.TagsListItem
+                  type="character"
+                  quantity={serie.characters?.available}
+                />
+                <Card.TagsListItem
+                  type="comic"
+                  quantity={serie.comics?.available}
+                />
+                <Card.TagsListItem
+                  type="creator"
+                  quantity={serie.creators?.available}
+                />
+                <Card.TagsListItem
+                  type="event"
+                  quantity={serie.events?.available}
+                />
+                <Card.TagsListItem
+                  type="story"
+                  quantity={serie.stories?.available}
+                />
+              </Card.TagsList>
+            </Card.Content>
           </Card>
         ))}
       </CardList>

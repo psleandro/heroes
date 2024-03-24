@@ -24,25 +24,29 @@ const ComicsList = async ({ searchParams }: ComicsListProps) => {
               alt={comic.title ?? ''}
               linkProps={{ href: `/comics/${comic.id}` }}
             />
-            <Card.Title>{comic.title}</Card.Title>
-            <Card.TagsList from="comics" entityId={comic.id}>
-              <Card.TagsListItem
-                type="creator"
-                quantity={comic.creators?.available}
-              />
-              <Card.TagsListItem
-                type="character"
-                quantity={comic.characters?.available}
-              />
-              <Card.TagsListItem
-                type="story"
-                quantity={comic.stories?.available}
-              />
-              <Card.TagsListItem
-                type="event"
-                quantity={comic.events?.available}
-              />
-            </Card.TagsList>
+            <Card.Content>
+              <Card.Title href={`/comics/${comic.id}`}>
+                {comic.title}
+              </Card.Title>
+              <Card.TagsList from="comics" entityId={comic.id}>
+                <Card.TagsListItem
+                  type="creator"
+                  quantity={comic.creators?.available}
+                />
+                <Card.TagsListItem
+                  type="character"
+                  quantity={comic.characters?.available}
+                />
+                <Card.TagsListItem
+                  type="story"
+                  quantity={comic.stories?.available}
+                />
+                <Card.TagsListItem
+                  type="event"
+                  quantity={comic.events?.available}
+                />
+              </Card.TagsList>
+            </Card.Content>
           </Card>
         ))}
       </CardList>

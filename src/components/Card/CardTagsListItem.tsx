@@ -22,7 +22,7 @@ const CardTagsListItem = ({ type, quantity = 0 }: CardTagsListItemProps) => {
       <li>
         <Link
           href={getUrlToListByTagType(type)}
-          className={`flex gap-1 rounded-md ${bgColorByEntityType[type]} px-2 py-1 text-xs text-white transition-all hover:scale-110`}
+          className={`flex gap-1 rounded-md ${bgColorByEntityType[type]} px-2 py-1 text-xs text-white shadow-sm transition-all hover:scale-110`}
         >
           <span>{quantity}</span>
           <span className="capitalize">{getTagTextByType(type, quantity)}</span>
