@@ -106,6 +106,7 @@ const FilterInput = ({
 
   useEffect(() => {
     changeSearch(debouncedFilterText);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedFilterText]);
 
   return (
