@@ -1,5 +1,13 @@
 import type { PaginationModel } from '~/types/pagination';
 
+export type ListParametersNames =
+  | 'characters'
+  | 'creators'
+  | 'comics'
+  | 'series'
+  | 'events'
+  | 'stories';
+
 export type CharactersListParameters = PaginationModel & {
   name?: string;
   nameStartsWith?: string;

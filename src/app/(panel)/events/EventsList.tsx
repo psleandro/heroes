@@ -25,7 +25,7 @@ const EventsList = async ({ searchParams }: EventsListProps) => {
               linkProps={{ href: `/events/${event.id}` }}
             />
             <Card.Title>{event.title}</Card.Title>
-            <Card.TagsList>
+            <Card.TagsList from="events" entityId={event.id}>
               <Card.TagsListItem
                 type="character"
                 quantity={event.characters?.available}

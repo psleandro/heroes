@@ -25,7 +25,7 @@ const CreatorsList = async ({ searchParams }: CreatorsListProps) => {
               linkProps={{ href: `/creators/${creator.id}` }}
             />
             <Card.Title>{creator.fullName}</Card.Title>
-            <Card.TagsList>
+            <Card.TagsList from="creators" entityId={creator.id}>
               <Card.TagsListItem
                 type="comic"
                 quantity={creator.comics?.available}
