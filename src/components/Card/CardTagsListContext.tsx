@@ -1,6 +1,6 @@
 'use client';
 import { createContext, useContext } from 'react';
-import { listingRouteByMarvelApiEntityType } from '~/consts/urls';
+import { getUrlToListByTagType } from '~/utils/url';
 import type { ListParametersNames, MarvelApiEntityType } from '~/types';
 
 export type CardTagsListProviderProps = {
@@ -32,16 +32,13 @@ export const CardTagsListProvider = ({
   from,
   entityId,
 }: CardTagsListProviderProps) => {
-  const getUrlToListByTagType = (type: MarvelApiEntityType) => {
-    const listingUrl = listingRouteByMarvelApiEntityType[type];
-
-    if (!listingUrl || !from || !entityId) return '#';
-
-    return `/${listingUrl}?${from}=${entityId}`;
-  };
-
   return (
-    <CardTagsListContext.Provider value={{ getUrlToListByTagType }}>
+    <CardTagsListContext.Provider
+      value={{
+        getUrlToListByTagType: (type: MarvelApiEntityType) =>
+          getUrlToListByTagType(type, from, entityId),
+      }}
+    >
       {children}
     </CardTagsListContext.Provider>
   );

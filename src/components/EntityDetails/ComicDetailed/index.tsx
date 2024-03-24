@@ -23,7 +23,7 @@ const ComicDetailed = async ({ comicId }: ComicDetailedProps) => {
         <SectionList type="character">
           <SectionList.Header>
             <SectionList.Title>Characters</SectionList.Title>
-            <SectionList.Link href={`#series${comicId}`} />
+            <SectionList.ViewAllLink from="comics" entityId={comicId} />
           </SectionList.Header>
 
           <SectionList.Carousel
@@ -36,7 +36,7 @@ const ComicDetailed = async ({ comicId }: ComicDetailedProps) => {
         <SectionList type="creator">
           <SectionList.Header>
             <SectionList.Title>Creators</SectionList.Title>
-            <SectionList.Link href={`#comics${comicId}`} />
+            <SectionList.ViewAllLink from="comics" entityId={comicId} />
           </SectionList.Header>
 
           <SectionList.Carousel fetchFn={() => getComicCreatorsById(comicId)} />
@@ -47,7 +47,7 @@ const ComicDetailed = async ({ comicId }: ComicDetailedProps) => {
         <SectionList type="event">
           <SectionList.Header>
             <SectionList.Title>Events</SectionList.Title>
-            <SectionList.Link href={`#events${comicId}`} />
+            <SectionList.ViewAllLink from="comics" entityId={comicId} />
           </SectionList.Header>
           <SectionList.Carousel fetchFn={() => getComicEventsById(comicId)} />
         </SectionList>
@@ -57,7 +57,7 @@ const ComicDetailed = async ({ comicId }: ComicDetailedProps) => {
         <SectionList type="story">
           <SectionList.Header>
             <SectionList.Title>Stories</SectionList.Title>
-            <SectionList.Link href={`#stories${comicId}`} />
+            <SectionList.ViewAllLink from="comics" entityId={comicId} />
           </SectionList.Header>
 
           <SectionList.Carousel fetchFn={() => getComicStoriesById(comicId)} />

@@ -23,7 +23,7 @@ const CreatorDetailed = async ({ creatorId }: CreatorDetailedProps) => {
         <SectionList type="comic">
           <SectionList.Header>
             <SectionList.Title>Comics</SectionList.Title>
-            <SectionList.Link href={`#comics${creatorId}`} />
+            <SectionList.ViewAllLink from="creators" entityId={creatorId} />
           </SectionList.Header>
 
           <SectionList.Carousel
@@ -36,7 +36,7 @@ const CreatorDetailed = async ({ creatorId }: CreatorDetailedProps) => {
         <SectionList type="event">
           <SectionList.Header>
             <SectionList.Title>Events</SectionList.Title>
-            <SectionList.Link href={`#events${creatorId}`} />
+            <SectionList.ViewAllLink from="creators" entityId={creatorId} />
           </SectionList.Header>
           <SectionList.Carousel
             fetchFn={() => getCreatorEventsById(creatorId)}
@@ -48,7 +48,7 @@ const CreatorDetailed = async ({ creatorId }: CreatorDetailedProps) => {
         <SectionList type="story">
           <SectionList.Header>
             <SectionList.Title>Stories</SectionList.Title>
-            <SectionList.Link href={`#stories${creatorId}`} />
+            <SectionList.ViewAllLink from="creators" entityId={creatorId} />
           </SectionList.Header>
 
           <SectionList.Carousel
@@ -61,7 +61,7 @@ const CreatorDetailed = async ({ creatorId }: CreatorDetailedProps) => {
         <SectionList type="serie">
           <SectionList.Header>
             <SectionList.Title>Series</SectionList.Title>
-            <SectionList.Link href={`#series${creatorId}`} />
+            <SectionList.ViewAllLink from="creators" entityId={creatorId} />
           </SectionList.Header>
 
           <SectionList.Carousel

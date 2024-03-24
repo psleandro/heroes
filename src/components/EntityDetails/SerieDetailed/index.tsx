@@ -24,7 +24,7 @@ const SerieDetailed = async ({ serieId }: SerieDetailedProps) => {
         <SectionList type="character">
           <SectionList.Header>
             <SectionList.Title>Characters</SectionList.Title>
-            <SectionList.Link href={`#characters${serieId}`} />
+            <SectionList.ViewAllLink from="series" entityId={serieId} />
           </SectionList.Header>
           <SectionList.Carousel
             fetchFn={() => getSerieCharactersById(serieId)}
@@ -36,7 +36,7 @@ const SerieDetailed = async ({ serieId }: SerieDetailedProps) => {
         <SectionList type="comic">
           <SectionList.Header>
             <SectionList.Title>Comics</SectionList.Title>
-            <SectionList.Link href={`#comics${serieId}`} />
+            <SectionList.ViewAllLink from="series" entityId={serieId} />
           </SectionList.Header>
 
           <SectionList.Carousel fetchFn={() => getSerieComicsById(serieId)} />
@@ -47,7 +47,7 @@ const SerieDetailed = async ({ serieId }: SerieDetailedProps) => {
         <SectionList type="creator">
           <SectionList.Header>
             <SectionList.Title>Creators</SectionList.Title>
-            <SectionList.Link href={`#creators${serieId}`} />
+            <SectionList.ViewAllLink from="series" entityId={serieId} />
           </SectionList.Header>
 
           <SectionList.Carousel fetchFn={() => getSerieCreatorsById(serieId)} />
@@ -58,7 +58,7 @@ const SerieDetailed = async ({ serieId }: SerieDetailedProps) => {
         <SectionList type="event">
           <SectionList.Header>
             <SectionList.Title>Events</SectionList.Title>
-            <SectionList.Link href={`#events${serieId}`} />
+            <SectionList.ViewAllLink from="series" entityId={serieId} />
           </SectionList.Header>
 
           <SectionList.Carousel fetchFn={() => getSerieEventsById(serieId)} />
@@ -69,7 +69,7 @@ const SerieDetailed = async ({ serieId }: SerieDetailedProps) => {
         <SectionList type="story">
           <SectionList.Header>
             <SectionList.Title>Stories</SectionList.Title>
-            <SectionList.Link href={`#stories${serieId}`} />
+            <SectionList.ViewAllLink from="series" entityId={serieId} />
           </SectionList.Header>
 
           <SectionList.Carousel fetchFn={() => getSerieStoriesById(serieId)} />

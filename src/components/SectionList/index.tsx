@@ -1,7 +1,7 @@
 import { type HTMLAttributes } from 'react';
 import { SectionListCarousel } from './components/SectionListCarousel';
 import { SectionListHeader } from './components/SectionListHeader';
-import { SectionListHeaderLink } from './components/SectionListHeaderLink';
+import { SectionListHeaderViewAllLink } from './components/SectionListHeaderViewAllLink';
 import { SectionListHeaderTitle } from './components/SectionListHeaderTitle';
 import { SectionListProvider } from './contexts/SectionListProvider';
 import { cn } from '~/lib/utils';
@@ -37,6 +37,6 @@ SectionList.displayName = 'SectionList';
 SectionList.Carousel = SectionListCarousel;
 SectionList.Header = SectionListHeader;
 SectionList.Title = SectionListHeaderTitle;
-SectionList.Link = SectionListHeaderLink;
+SectionList.ViewAllLink = SectionListHeaderViewAllLink;
 
 export { SectionList };
