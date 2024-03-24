@@ -77,3 +77,10 @@ export type StoriesListParameters = PaginationModel & {
   events?: string;
   series?: string;
 };
+
+export type AllListingParameters = CharactersListParameters &
+  ComicsListParameters &
+  CreatorsListParameters &
+  EventsListParameters &
+  SeriesListParameters &
+  StoriesListParameters;
