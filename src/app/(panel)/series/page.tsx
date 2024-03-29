@@ -36,7 +36,7 @@ export default async function SeriesPage({
       </Filters>
 
       <Suspense
-        key={`${page}${pageSize}${searchParams}`}
+        key={`${page}${pageSize}${JSON.stringify(searchParams)}`}
         fallback={<SeriesList.Skeleton />}
       >
         <SeriesList searchParams={{ page, pageSize, ...searchParams }} />

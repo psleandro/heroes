@@ -34,7 +34,7 @@ export default async function CreatorsPage({
       </Filters>
 
       <Suspense
-        key={`${page}${pageSize}${searchParams}`}
+        key={`${page}${pageSize}${JSON.stringify(searchParams)}`}
         fallback={<CreatorsList.Skeleton />}
       >
         <CreatorsList searchParams={{ page, pageSize, ...searchParams }} />

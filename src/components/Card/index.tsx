@@ -11,7 +11,7 @@ type CardProps = HTMLAttributes<HTMLDivElement> & {
 };
 
 const Card = ({ children, element: Element = 'span' }: CardProps) => (
-  <Element className="group flex min-w-48 flex-1 overflow-hidden rounded-md shadow-md lg:min-w-60 xl:w-96 xl:min-w-80">
+  <Element className="group flex min-w-48 max-w-[360px] flex-1 overflow-hidden rounded-md shadow-md lg:min-w-60 xl:w-96 xl:min-w-80">
     <span className="relative flex flex-1 flex-col">{children}</span>
   </Element>
 );

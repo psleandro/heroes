@@ -34,7 +34,7 @@ export default async function EventsPage({
         />
       </Filters>
       <Suspense
-        key={`${page}${pageSize}${searchParams}`}
+        key={`${page}${pageSize}${JSON.stringify(searchParams)}`}
         fallback={<EventsList.Skeleton />}
       >
         <EventsList searchParams={{ page, pageSize, ...searchParams }} />

@@ -33,7 +33,7 @@ export default async function CharactersPage({
       </Filters>
 
       <Suspense
-        key={`${page}${pageSize}${searchParams}`}
+        key={`${page}${pageSize}${JSON.stringify(searchParams)}`}
         fallback={<CharactersList.Skeleton />}
       >
         <CharactersList searchParams={{ page, pageSize, ...searchParams }} />

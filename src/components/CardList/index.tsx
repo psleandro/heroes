@@ -6,7 +6,10 @@ type CardListProps = HTMLAttributes<HTMLElement> & {
 };
 
 const CardList = ({ children, ...props }: CardListProps) => (
-  <ul className="flex flex-wrap gap-8 gap-y-16" {...props}>
+  <ul
+    className="flex flex-wrap justify-center gap-8 gap-y-16 md:justify-start"
+    {...props}
+  >
     {children}
   </ul>
 );

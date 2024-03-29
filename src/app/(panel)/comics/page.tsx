@@ -35,7 +35,7 @@ export default async function ComicsPage({
       </Filters>
 
       <Suspense
-        key={`${page}${pageSize}${searchParams}`}
+        key={`${page}${pageSize}${JSON.stringify(searchParams)}`}
         fallback={<ComicsList.Skeleton />}
       >
         <ComicsList searchParams={{ page, pageSize, ...searchParams }} />
